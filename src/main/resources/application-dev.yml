@@ -1,0 +1,55 @@
+server:  
+  port: 8888
+  sessionTimeout: 30 
+  tomcat.max-threads: 0  
+  tomcat.uri-encoding: UTF-8
+  servlet:
+    context-path: /gzbd-jkzx
+# Tomcat
+tomcat:
+  accessLogEnabled : false
+  protocolHeader : x-forwarded-proto
+  remoteIpHeader : x-forwarded-for
+  backgroundProcessorDelay: 30
+endpoints:
+    health:
+        enabled: true
+        sensitive: false 
+    metrics:
+        enabled: true
+        sensitive: false   
+management:
+    port: 8243
+    address: 127.0.0.1  
+    security:
+        enabled: false   
+security:
+    basic:
+        enabled: true
+        path: /admin 
+    user:
+        name: admin     
+        password: shang_admin_01
+spring:  
+  datasource:
+    gzbd:
+      type: com.zaxxer.hikari.HikariDataSource
+      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      jdbcUrl: jdbc:p6spy:mysql://10.18.33.161/zdww_yqjkdb
+      username: zdww_yqjk
+      password: zdww_yqjk_2020
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet.content-type: text/html; charset=utf-8
+    cache: false
+    enabled: true
+  mvc:
+    static-path-pattern:
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/static/
+swagger:
+  enabled: true
+

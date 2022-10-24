@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>各市州新型冠状病毒肺炎疫情监控情况</title>
+    <meta http-equiv="X-UA-Compatible" content="/yqjk/" name="context-path" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link  type="text/css" th:href="@{/dist/patient/skin.css}"  />
+    <link  type="text/css" th:href="@{/dist/patient/style.css}"  />
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+            width: 100%;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+
+</head>
+<body>
+    <div >
+        <table>
+            <thead>
+            <tr>
+                <th width="10%">患者姓名</th>
+                <th width="20%">机构</th>
+                <th width="30%">籍贯</th>
+                <th width="5%">性别</th>
+                <th width="5%">年龄</th>
+                <th width="20%">身份证号</th>
+                <th width="10%">是否医务人员</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="patient : ${result}">
+                <td>
+                    <div th:text="${patient.name}" th:title="${patient.name}" id="patient_name">
+                    </div>
+                </td>
+                <td>
+                    <div  th:text="${patient.jgmc}" th:title="${patient.jgmc}" id="patient_jgmc">
+                    </div>
+                </td>
+                <td>
+                    <div th:text="${patient.jg}" th:title="${patient.jg}" id="patient_jg">
+                    </div>
+                </td>
+                <td>
+                    <div th:text="${patient.sex}" th:title="${patient.sex}" id="patient_sex">
+                    </div>
+                </td>
+                <td>
+                    <div th:text="${patient.age}" th:title="${patient.age}" id="patient_age">
+                    </div>
+                </td>
+                <td>
+                    <div th:text="${patient.sfzh}" th:title="${patient.sfzh}" id="patient_sfzh">
+                    </div>
+                </td>
+                <td>
+                    <div  th:text="${patient.isdoctor}" th:title="${patient.isdoctor}" id="patient_isdoctor">
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

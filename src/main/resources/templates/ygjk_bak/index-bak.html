@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>疫情监控系统</title>
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="demo" />
+    <meta name="description" content="demo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script th:src="@{/dist/js/lib/viewport/viewport.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/_common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/style.css}">
+</head>
+
+<body>
+    <div class="yqjkxy-wrapper">
+        <!-- 头部开始 -->
+        <div class="header-wrapper">
+            <div class="mar-box fn-clear">
+                <div class="time-show top-btn" id="time"></div>
+                <h2 class="header-title">甘肃省新型冠状病毒肺炎疫情监控系统</h2>
+                <div class="home-btn fn-clear top-btn">
+                    <span id="icon_wholeScreenspan"><i class="icon_wholeScreen"></i>全屏显示</span>
+                    <span><i class="icon_quit"></i>退出系统</span>
+                </div>
+            </div>
+        </div>
+        <!-- 主体内容开始 -->
+        <div class="fullpage-content">
+            <iframe id="iframe" name="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" src="../route/yqjk/home-content"></iframe>
+        </div>
+        <!-- 主体内容结束 -->
+    </div>
+</body>
+<script th:src="@{/dist/js/lib/jquery/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/dist/js/lib/backstretch/jquery.backstretch.min.js}"></script>
+<script th:src="@{/dist/js/lib/echarts/echarts4.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    areaCode1 = [[${areaCode}]];
+    /*]]>*/
+      $("body").backstretch( [[@{/dist/img/system_bg.png}]]);
+    $(function() {
+        var scale = $('.header-wrapper').height();
+        var scroll_height = document.documentElement.clientHeight - scale
+        $('#iframe').css('height', scroll_height);
+    })
+          var add=setInterval("getTime()",1000);
+    //这个函数主要是获取时间然后写入div中
+    function getTime() {
+        var date=new Date();//创建date对象，获取时间
+        var id1=document.getElementById("time");//通过div标签的id多去div标签
+        var moth=paddNum(date.getMonth()+1);
+        id1.innerHTML=date.getFullYear()+'年'+moth+'月'+paddNum(date.getDate())+'日'+'<span>'+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'</span>';//将时间通过innerHTML属性写入div标签中
+    }
+          var paddNum = function(num){
+              num += "";
+              return num.replace(/^(\d)$/,"0$1");
+          };
+
+      $('#icon_wholeScreenspan').on('click',function () {
+          tempUrl = window.location.origin+"/gzbd-jkzx/yqjk/index";
+          mfs = document.getElementById("iframe");
+          mfs.style.display="";
+          mfs.style.width="100%";
+          mfs.style.height="100%";
+          mfs.style.backgroundColor='white';
+          mfs.style.zIndex='2147483688';
+          mfs.style.position='fixed';
+          mfs.style.left= '0px';
+          mfs.style.top= '0px';
+          mfs.style.margin= '0px !important';
+          mfs.style.padding= '0px !important';
+          mfs.style.borderWidth= '0px !important';
+          mfs.style.borderStyle= 'initial !important';
+          mfs.style.borderColor= 'initial !important';
+          mfs.style.borderImage= 'initial !important';
+          if(tempUrl.indexOf('&random') != -1){//连接有autoRun参数
+              tempUrl = tempUrl.substr(0, tempUrl.indexOf('&random'));
+          }
+
+          if(mfs.requestFullScreen) {
+              mfs.requestFullScreen();
+          } else if(mfs.mozRequestFullScreen) { //兼容moz
+              mf.mozRequestFullScreen();
+          } else if(mfs.webkitRequestFullScreen) { //兼容webkit
+              mfs.webkitRequestFullScreen();
+          }
+
+          mfs.src = tempUrl;
+      });
+
+</script>

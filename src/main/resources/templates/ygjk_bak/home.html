@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>疫情监控系统</title>
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="demo" />
+    <meta name="description" content="demo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script th:src="@{/dist/js/lib/viewport/viewport.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/_common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/style.css}">
+</head>
+
+<body>
+    <div class="yqjkxy-wrapper">
+        <!-- 头部开始 -->
+        <div class="header-wrapper">
+            <div class="mar-box fn-clear">
+                <div class="time-show top-btn">2020年1月24日<span>18:10:20</span></div>
+                <h2 class="header-title">甘肃省新型冠状病毒肺炎疫情监控系统</h2>
+                <div class="home-btn fn-clear top-btn">
+                    <span><i class="icon_wholeScreen"></i>全屏显示</span>
+                    <span><i class="icon_quit"></i>退出系统</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-wrapper mar-box fn-clear">
+            <!-- 应急储备情况 -->
+            <div class="emergency-reserve-info">
+                <div class="title-head">
+                    <h3>全省应急物资储备情况</h3>
+                    <div class="title-line"></div>
+                </div>
+                <!-- 第一部分 -->
+                <div class="material-type fn-clear">
+                    <div class="col-8">
+                        <div class="piece">
+                            <img src="dist/img/system_content_kouzhao.png" alt="口罩" class="item_logo">
+                            <div class="type-count">9999<span>个</span></div>
+                            <div class="type-name">N95口罩</div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="piece">
+                            <img src="dist/img/system_content_yanjing.png" alt="防护眼镜" class="item_logo">
+                            <div class="type-count">9999<span>个</span></div>
+                            <div class="type-name">防护眼镜(防雾型)</div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="piece">
+                            <img src="dist/img/system_content_kouzhao.png" alt="口罩" class="item_logo">
+                            <div class="type-count">9999<span>件</span></div>
+                            <div class="type-name">隔离衣</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二部分 -->
+                <div class="material-dec">
+                    <div class="box-item fn-clear">
+                        <div class="item_name">全面型呼吸防护器</div>
+                        <div class="item_number">99999<span>个</span></div>
+                    </div>
+                    <div class="box-item fn-clear">
+                        <div class="item_name">防水围裙</div>
+                        <div class="item_number">99999<span>件</span></div>
+                    </div>
+                    <div class="box-item fn-clear">
+                        <div class="item_name">手消液</div>
+                        <div class="item_number">99999<span>个</span></div>
+                    </div>
+                    <div class="box-item fn-clear">
+                        <div class="item_name">消毒用品</div>
+                        <div class="item_number">99999<span>个</span></div>
+                    </div>
+                    <div class="box-item fn-clear">
+                        <div class="item_name">救护车</div>
+                        <div class="item_number">99999<span>辆</span></div>
+                    </div>
+                    <div class="box-item fn-clear">
+                        <div class="item_name">预留重症监护室床位数</div>
+                        <div class="item_number">99999<span>个</span></div>
+                    </div>
+                </div>
+                <!-- 第三部分 -->
+                <div class="material-type fn-clear">
+                    <div class="col-8">
+                        <div class="piece">
+                            <img src="dist/img/system_content_fuyabingfang.png" alt="负压病房" class="item_logo">
+                            <div class="type-count">9999<span>个</span></div>
+                            <div class="type-name">负压病房</div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="piece">
+                            <img src="dist/img/system_content_jiuhuche.png" alt="负压转运车" class="item_logo">
+                            <div class="type-count">9999<span>个</span></div>
+                            <div class="type-name">负压转运车</div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="piece">
+                            <img src="dist/img/system_content_fuyadanjia.png" alt="负压担架" class="item_logo">
+                            <div class="type-count">9999<span>件</span></div>
+                            <div class="type-name">负压担架</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 中间部分 -->
+            <div class="content-box ">
+                <div class="content-part1 fn-clear">
+                    <div class="col-4">
+                        <div class="piece">
+                            <div class="piece-title">
+                                <i class="title-line-2"></i>
+                                <span>发热门诊人数</span>
+                            </div>
+                            <div class="item-count green-color">4905</div>
+                            <div class="item-countbg">888888</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="piece">
+                            <div class="piece-title">
+                                <i class="title-line-2"></i>
+                                <span>发热留观人数</span>
+                            </div>
+                            <div class="item-count color-47f0ff">4905</div>
+                            <div class="item-countbg">888888</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="piece">
+                            <div class="piece-title">
+                                <i class="title-line-2"></i>
+                                <span>疑似病例数</span>
+                            </div>
+                            <div class="item-count yellow-color">4905</div>
+                            <div class="item-countbg">888888</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="piece">
+                            <div class="piece-title">
+                                <i class="title-line-2"></i>
+                                <span>确诊病例数</span>
+                            </div>
+                            <div class="item-count orange-color">4905</div>
+                            <div class="item-countbg">888888</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="piece">
+                            <div class="piece-title">
+                                <i class="title-line-2"></i>
+                                <span>治愈人数</span>
+                            </div>
+                            <div class="item-count color-47f0ff">4905</div>
+                            <div class="item-countbg">888888</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="piece">
+                            <div class="piece-title">
+                                <i class="title-line-2"></i>
+                                <span>死亡人数</span>
+                            </div>
+                            <div class="item-count red-color">4905</div>
+                            <div class="item-countbg">888888</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 中间第二部分 -->
+                <div class="cc_part2" id="main_gansu">
+                    <!-- 此处放置echarts地区图 -->
+                </div>
+                <div class="content-part3">
+                    <div class="subtitle">
+                        <span>全省新型冠状病毒肺炎疫情监控趋势分析</span>
+                        <i class="light1"></i>
+                    </div>
+                    <div id="chart_line"></div>
+                </div>
+            </div>
+            <!-- 左侧部分 -->
+            <div class="left-part">
+                <!-- 第一部分 -->
+                <div class="left-part1">
+                    <div class="title-head">
+                        <h3>发热留观人数情况</h3>
+                        <div class="title-line"></div>
+                        <div class="cr_tab">
+                            <div class="tab_item tab_active">患者</div>
+                            <div class="tab_item">医务人员</div>
+                        </div>
+                    </div>
+                    <div class="flex-wrap flex-wrap1">
+                        <div class="item">
+                            <div class="type-count green-color">2<span>人</span></div>
+                            <div class="type-name">累计留观人数</div>
+                        </div>
+                        <div class="item">
+                            <div class="type-count color-fba721">2<span>人</span></div>
+                            <div class="type-name">昨日新增留观人数</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二部分 -->
+                <div class="left-part2">
+                    <div class="title-head">
+                        <h3>确诊病例数统计情况</h3>
+                        <div class="title-line"></div>
+                        <div class="cr_tab">
+                            <div class="tab_item tab_active">当天数</div>
+                            <div class="tab_item">累计数</div>
+                        </div>
+                    </div>
+                    <div class="material-type fn-clear">
+                        <div class="col-8">
+                            <div class="piece">
+                                <img src="dist/img/system_content_quezhen.png" alt="确诊" class="item_logo">
+                                <div class="type-count">2<span>人</span></div>
+                                <div class="type-name">确诊病例数</div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="piece">
+                                <img src="dist/img/system_content_quezhenyiwu.png" alt="确诊医务人员" class="item_logo">
+                                <div class="type-count">9999<span>人</span></div>
+                                <div class="type-name">确诊病例为医务人员数</div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="piece">
+                                <img src="dist/img/system_content_zhongzheng.png" alt="重症" class="item_logo">
+                                <div class="type-count">9999<span>人</span></div>
+                                <div class="type-name">确诊病例重症病例数</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="material-type fn-clear">
+                        <div class="col-8">
+                            <div class="piece">
+                                <img src="dist/img/system_content_bingwei.png" alt="病危" class="item_logo">
+                                <div class="type-count">9999<span>人</span></div>
+                                <div class="type-name">确诊病例危重症病例数</div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="piece">
+                                <img src="dist/img/system_content_siwang.png" alt="死亡" class="item_logo">
+                                <div class="type-count">9999<span>人</span></div>
+                                <div class="type-name">确诊病例死亡病例数</div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="piece">
+                                <img src="dist/img/system_content_zhiyu.png" alt="治愈" class="item_logo">
+                                <div class="type-count">9999<span>人</span></div>
+                                <div class="type-name">确诊病例治愈病例数</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第三部分 -->
+                <div class="left-part3">
+                    <div class="title-head">
+                        <h3>疑似病例数统计情况</h3>
+                        <div class="title-line"></div>
+                        <div class="cr_tab">
+                            <div class="tab_item tab_active">患者</div>
+                            <div class="tab_item">医务人员</div>
+                        </div>
+                    </div>
+                    <div class="flex-wrap flex-wrap2">
+                        <div class="item">
+                            <div class="type-count green-color">2<span>人</span></div>
+                            <div class="type-name">累计疑似病例人数</div>
+                        </div>
+                        <div class="item">
+                            <div class="type-count color-47f0ff">2<span>人</span></div>
+                            <div class="type-name">昨日新增疑似病例人数</div>
+                        </div>
+                        <div class="item">
+                            <div class="type-count color-fba721">2<span>人</span></div>
+                            <div class="type-name">累计解除疑似病例人数</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script th:src="@{/dist/js/lib/jquery/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/dist/js/lib/backstretch/jquery.backstretch.min.js}"></script>
+<script th:src="@{/dist/js/lib/echarts/echarts4.js}"></script>
+<script th:src="@{/dist/js/base.js}"></script>
+<script th:src="@{/dist/js/lib/gq.js}"></script>
+<script th:src="@{/dist/js/lib/wjj.js}"></script>
+<script>
+    $("body").backstretch(["../../dist/img/system_bg.png"]);
+    $(function() {
+        // toThousands($(".type-count").text())
+        // 图表配置
+        var chartLine = echarts.init(document.getElementById('chart_line'));
+        chartLine.setOption(option_line);
+        $(window).resize(function() {
+            chartLine.resize();
+        });
+        // tab
+        $(".tab_item").click(function() {
+            $(this).addClass("tab_active").siblings().removeClass("tab_active")
+            var index = $(this).index()
+            $(".cr_content").removeClass("crc_active")
+            $(".cr_content").eq(index).addClass("crc_active")
+        })
+    })
+</script>

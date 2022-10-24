@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>疫情监控系统</title>
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="demo" />
+    <meta name="description" content="demo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script th:src="@{/dist/js/lib/viewport/viewport.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/_common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/style.css}">
+</head>
+
+<body>
+    <div class="yqjkxy-wrapper">
+        <!-- 头部开始 -->
+        <div class="header-wrapper">
+            <div class="mar-box">
+                <div class="time-show top-btn">2020年1月24日<span>18:10:20</span></div>
+                <div class="home-btn fn-clear top-btn">
+                    <span><i class="icon_wholeScreen"></i>全屏显示</span>
+                    <span><i class="icon_quit"></i>退出系统</span>
+                </div>
+            </div>
+        </div>
+        <!-- 头部结束 正文开始 -->
+        <div class="second-screen">
+            <!-- 左侧部分开始 -->
+            <div class="content-left">
+                <div class="chart-wrap">
+                    <div class="subtitle">
+                        <span>各市州新型冠状病毒肺炎疫情监控情况</span>
+                        <i class="light1"></i>
+                    </div>
+                    <div id="chart_bar1">
+                    </div>
+                </div>
+                <div class="chart-wrap">
+                    <div class="subtitle">
+                        <span>定点医疗机构患者收治情况（TOP10）</span>
+                        <i class="light1"></i>
+                    </div>
+                    <div id="chart_bar2"></div>
+                </div>
+            </div>
+            <!-- 左侧部分结束 -->
+            <!-- 右侧部分开始 -->
+            <div class="content-right">
+                <div class="subtitle">
+                    <span>各市州新型冠状病毒肺炎疫情监控情况</span>
+                    <i class="light2"></i>
+                </div>
+                <div class="table-warp" id="szgzjbDiv">
+                    <div class="table-head font-size1">
+                        <span class="col col1">地区</span>
+                        <span class="col col2">疑似</span>
+                        <span class="col col3">确诊</span>
+                        <span class="col col4">死亡</span>
+                        <span class="col col5">治愈</span>
+                    </div>
+                    <!--<div class="row-wrap font-size2">
+                        <span class="col col1">全省</span>
+                        <span class="col col2 font-fcdb0f">10</span>
+                        <span class="col col3 font-ff8440">10</span>
+                        <span class="col col4">0</span>
+                        <span class="col col5 font-32e9c8">8</span>
+                    </div>
+                    <ul class="city-state-data">
+                        <li class="area-li">
+                            <div class="first-box">
+                                <span class="col col1"><i class="triangle-icon"></i><span>兰州</span>
+                                </span>
+                                <span class="col col2 orange-color">10</span>
+                                <span class="col col2 yellow-color">10</span>
+                                <span class="col col2 green-color">1</span>
+                                <span class="col col2 white-color">8</span>
+                            </div>
+                            <div class="second-box fn-clear">
+                                <dl>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>七里河</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>城关区</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>七里河</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>城关区</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="area-li">
+                            <div class="first-box">
+                                <span class="col col1"><i class="triangle-icon"></i><span>兰州</span>
+                                </span>
+                                <span class="col col2 orange-color">10</span>
+                                <span class="col col2 yellow-color">10</span>
+                                <span class="col col2 green-color">1</span>
+                                <span class="col col2 white-color">8</span>
+                            </div>
+                            <div class="second-box fn-clear">
+                                <dl>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>七里河</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>城关区</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>七里河</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                    <dt class="sec-dt">
+                                        <span class="col col1"><span>城关区</span>
+                                        </span>
+                                        <span class="col col2 orange-color">10</span>
+                                        <span class="col col2 yellow-color">10</span>
+                                        <span class="col col2 green-color">1</span>
+                                        <span class="col col2 white-color">8</span>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>-->
+                </div>
+            </div>
+
+            <!-- 右侧部分结束 -->
+            <!-- 正文结束 -->
+        </div>
+    </div>
+</body>
+<script th:src="@{/dist/js/lib/jquery/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/dist/js/lib/backstretch/jquery.backstretch.min.js}"></script>
+<script th:src="@{/dist/js/lib/echarts/echarts4.js}"></script>
+<script th:src="@{/dist/js/lib/gq.js}"></script>
+<script th:src="@{/dist/js/base.js}"></script>
+<script>
+    $("body").backstretch(["../../dist/img/system_bg.png"]);
+    $(function() {
+        // 图表配置
+        var chartBar1 = echarts.init(document.getElementById('chart_bar1'));
+        chartBar1.setOption(option_bar1);
+        var chartBar2 = echarts.init(document.getElementById('chart_bar2'));
+        chartBar2.setOption(option_bar2);
+        $(window).resize(function() {
+            chartBar.resize();
+        });
+    })
+</script>
+</htmls

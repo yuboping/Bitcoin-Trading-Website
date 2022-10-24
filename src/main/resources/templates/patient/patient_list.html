@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>弹窗</title>
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="demo" />
+    <meta name="description" content="demo" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css"  th:href="@{/distP/css/_common.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/distP/css/style.css}">
+    <script type="text/javascript" th:src="@{/distP/js/lib/viewport/viewport.js}"></script>
+</head>
+
+<body>
+
+<div class="patient-layer">
+    <div class="layer-bg"></div>
+    <div class="wrap-layer table-layer">
+        <div class="close" id="close"></div>
+        <div class="layer-info">
+            <div class="title">新型冠状病毒肺炎患者列表</div>
+            <div class="patient-table">
+                <div class="thead">
+                    <table>
+                        <thead>
+                        <tr>
+
+                            <th class="w9">患者姓名</th>
+                            <th class="w6">性别</th>
+                            <th class="w6">年龄</th>
+                            <th class="w17" >医院名称</th>
+                            <th class="w18">现住址</th>
+                            <th class="w9">是否确诊病例</th>
+                            <th class="w9" >是否医护人员</th>
+                            <th class="w14">确诊时间</th>
+                            <th class="w6"> 是否出院</th>
+                            <th class="w6">是否死亡</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbody" id="niceScroll">
+                    <table>
+
+                        <tbody>
+                        <tr th:each="patient : ${result}"  th:onclick="openPatient([[${patient.sfzhs}]],[[${patient.JGID}]])">
+
+                            <td class="w9">
+                                <div th:text="${patient.name}" th:title="${patient.name}" id="patient_name"  >
+                                </div>
+                            </td>
+                            <td class="w6">
+                                <div th:text="${patient.sex}" th:title="${patient.sex}" id="patient_sex">
+                                </div>
+                            </td>
+                            <td class="w6">
+                                <div th:text="${patient.age}" th:title="${patient.age}" id="patient_age">
+                                </div>
+                            </td>
+                            <td class="w17">
+                                <div  th:text="${patient.jgmc}" th:title="${patient.jgmc}" id="patient_jgmc">  </div>
+                            </td>
+                            <td class="w18">
+                                <div th:text="${patient.jg}" th:title="${patient.jg}" id="patient_jg"> </div>
+                            </td>
+
+                             <td class="w9">
+                                 <span class="fn-c-r"><div th:text="${patient.isqzbl}" th:title="${patient.isqzbl}" id="patient_isqzbl"> </div></span>
+
+                            </td>
+                            <td class="w9">
+                                <div  th:text="${patient.isdoctor}" th:title="${patient.isdoctor}" id="patient_isdoctor">
+                                </div>
+                            </td>
+                            <td class="w14">
+                                <div th:text="${patient.qzsj}" th:title="${patient.qzsj}" id="patient_qzsj">
+                                </div>
+                            </td>
+                            <td class="w6">
+                                <div th:text="${patient.iscy}" th:title="${patient.iscy}" id="patient_iscy">
+                                </div>
+                            </td>
+                            <td class="w6">
+                                <div  th:text="${patient.issw}" th:title="${patient.issw}" id="patient_issw">
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;" id="tanceng2">
+    <iframe id="iframe2" name="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" src=""></iframe>
+</div>
+</body>
+<script th:src="@{/distP/js/lib/jquery/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/distP/js/lib/nicescroll/jquery.nicescroll.min.js}"></script>
+<script th:src="@{/distP/js/lib/echarts/echarts4.js}"></script>
+<script th:src="@{/dist/patient/ymPrompt/ymPrompt_source.js}"></script>
+<script th:src="@{/dist/patient/ymPrompt/ymPrompt.js}"></script>
+<!-- <script src="dist/js/echarts.js"></script> -->
+<script>
+    $(function() {
+        $("#niceScroll").niceScroll({
+            cursorcolor: "#3165bc", // 改变滚动条颜色，使用16进制颜色值
+            cursoropacitymin: 0, // 当滚动条是隐藏状态时改变透明度, 值范围 1 到 0
+            cursoropacitymax: 1, // 当滚动条是显示状态时改变透明度, 值范围 1 到 0
+            cursorwidth: "10px", // 滚动条的宽度，单位：便素
+            cursorborder: "", // CSS方式定义滚动条边框
+            cursorborderradius: "5px", // 滚动条圆角（像素）改变滚动条的DIV的z-index值
+            scrollspeed: 60, // 滚动速度
+            mousescrollstep: 40, // 鼠标滚轮的滚动速度 (像素)
+            touchbehavior: false, // 激活拖拽滚动
+            hwacceleration: true, // 激活硬件加速
+            boxzoom: false, // 激活放大box的内容
+            dblclickzoom: true, // (仅当 boxzoom=true时有效)
+            background: "#0e2453", // 轨道的背景颜色
+            iframeautoresize: true, // 在加载事件时自动重置iframe大小
+            cursorminheight: 32, // 设置滚动条的最小高度 (像素)
+            preservenativescrolling: true, // 你可以用鼠标滚动可滚动区域的滚动条和增加鼠标滚轮事件
+            railoffset: false, // 可以使用top/left来修正位置
+            bouncescroll: false, // (only hw accell) 启用滚动跳跃的内容移动
+            spacebarenabled: true, // 当按下空格时使页面向下滚动
+            horizrailenabled: true, // nicescroll可以管理水平滚动
+            enabletranslate3d: true, // nicescroll 可以使用CSS变型来滚动内容
+            enablemousewheel: true, // nicescroll可以管理鼠标滚轮事件
+            enablekeyboard: true, // nicescroll可以管理键盘事件
+            smoothscroll: true, // ease动画滚动
+            sensitiverail: true, // 单击轨道产生滚动
+            enablemouselockapi: true, // 可以用鼠标锁定API标题 (类似对象拖动)
+        });
+
+        $('.patient-layer').show();
+        //
+        $('#btn').on('click', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+
+        });
+        $('#close').on('click', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+            $('.patient-layer').hide();
+            var _id = window.parent.document.getElementById("tanceng");
+            $(_id).css("display","none");
+        });
+    })
+    //
+    function openPatient(sfzh,orgCode){
+        debugger
+        $('#tanceng2').css("display","block");
+
+        $("#iframe2").attr('src','/gzbd-jkzx/patientInfo/queryPatientInfo?orgCode=' + orgCode + '&sfzh=' + sfzh);
+        $('#iframe2').css('width', '100%');
+        $('#iframe2').css('height', '100%');
+        $('#iframe2').css('align', 'middle');
+
+        $('#iframe2').css('position', 'fixed');
+        $('#iframe2').css('top', '0');
+        $('#iframe2').css('left', '0');
+        $('#iframe2').css('right', '0');
+        $('#iframe2').css('bottom', '0');
+        $('#iframe2').css('z-index', '999');
+        //ymPrompt.win({message:'/gzbd-jkzx/patientInfo/queryPatientInfo?orgCode=' + orgCode + '&sfzh=' + sfzh,width:800,height:400,title:null, closeBtn:true,handler:null,iframe:true});
+
+    }
+
+
+</script>
+
+</html>

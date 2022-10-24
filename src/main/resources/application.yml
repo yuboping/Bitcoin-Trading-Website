@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+    
+server:
+  tomcat:
+    max-threads: 5000
+    min-spare-threads: 100
+    accept-count: 5000
+    uri-encoding: UTF-8
+    max-connections: 8000

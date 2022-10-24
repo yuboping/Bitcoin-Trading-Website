@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>弹窗</title>
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="demo" />
+    <meta name="description" content="demo" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" th:href="@{/distP/css/_common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/distP/css/style.css}">
+    <script type="text/javascript" th:src="@{/dist/js/lib/viewport/viewport.js}"></script>
+</head>
+
+<body>
+<div class="wrap-layer" id="patient-layer1">
+    <div class="close" id="close"></div>
+    <div class="layer-info">
+        <div class="title">新型冠状病毒肺炎患者详情</div>
+        <div class="info" id="niceScroll">
+            <div class="piece">
+                <div class="tel">
+                    <i></i><span>患者基本信息</span>
+                </div>
+                <div class="table-info">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">姓名：</span><span class="c-fff" id="xm"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">身份证号：</span><span class="c-fff" id="sfzh"></span></td>
+                            <td class="w30"><span class="c-bacbe6">性别：</span><span class="c-fff"  id="xb"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">年龄：</span><span class="c-fff"id="age"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">患者联系电话：</span><span class="c-fff"id="lxdh"></span></td>
+                            <td class="w30"><span class="c-bacbe6">人群分类：</span><span class="c-fff" id="rqfl"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否医务人员：</span><span class="c-fff"id="sfywry"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">工作单位：</span><span class="c-fff" id="gzdw"></span></td>
+                            <td class="w30"><span class="c-bacbe6"></span><span class="c-fff"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">两周内是否住武汉：</span><span class="c-fff" id="lzsfzwh"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">两周内是否至其他省份：</span><span class="c-fff" id="lzsfzqts"></span></td>
+                            <td class="w30"><span class="c-bacbe6">到达其他省份名称：</span><span class="c-fff" id="ddqtsmc"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="jg" style="font-size: 0.45rem;">
+                        <div class="l" >
+                            <span class="c-bacbe6">籍贯：</span><span class="c-fff" id="jg"></span>
+                        </div>
+                        <div class="m">
+                            <span class="c-bacbe6">现住址：</span><span class="c-fff" id="xzz"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="piece mar-tb30">
+                <div class="tel">
+                    <i></i><span>医疗诊断信息</span>
+                </div>
+                <div class="table-info">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否首诊医院：</span><span class="c-fff" id="sfszyy"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">首诊医院名称：</span><span class="c-fff" id="szyymc"></span></td>
+                            <td class="w30"><span class="c-bacbe6"></span><span class="c-fff"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">发病日期：</span><span class="c-fff" id="fbrq"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">诊断时间：</span><span class="c-fff" id="zdsj"></span></td>
+                            <td class="w30"><span class="c-bacbe6">确认疑似时间：</span><span class="c-fff" id="qryssj"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">病案号：</span><span class="c-fff" id="bah"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">主诉：</span><span class="c-fff" id="zs"></span></td>
+                            <td class="w30"><span class="c-bacbe6"></span><span class="c-fff"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否有基础疾病：</span><span class="c-fff" id="sfyjcjb"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">基础疾病情况：</span><span class="c-fff" id="jcjbqk"></span></td>
+                            <td class="w30"><span class="c-bacbe6"></span><span class="c-fff"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否核酸检测：</span><span class="c-fff" id="sfhsjc"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">检测级别：</span><span class="c-fff" id="jcjb"></span></td>
+                            <td class="w30"><span class="c-bacbe6">核酸检测结果：</span><span class="c-fff" id="hsjcjg"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否基因测序：</span><span class="c-fff" id="sfjycx"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">是否检测出2019-nCov：</span><span class="c-fff" id="sfjc2019"></span></td>
+                            <td class="w30"><span class="c-bacbe6"></span><span class="c-fff"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否确诊病例：</span><span class="c-fff" id="sfqzbl"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">确诊时间：</span><span class="c-fff" id="qzsj"></span></td>
+                            <td class="w30"><span class="c-bacbe6"></span><span class="c-fff"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否重症：</span><span class="c-fff" id="sfzz"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">是否危重症：</span><span class="c-fff" id="sfwzz"></span></td>
+                            <td class="w30"><span class="c-bacbe6">是否排除疑似病例：</span><span class="c-fff" id="sfpcysbl"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">是否出院：</span><span class="c-fff" id="sfcy"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">出院时间：</span><span class="c-fff" id="cysj"></span></td>
+                            <td class="w30"><span class="c-bacbe6">是否死亡：</span><span class="c-fff" id="sfsw"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="w30">
+                                <span class="c-bacbe6">死亡时间：</span><span class="c-fff" id="swsj"></span>
+                            </td>
+                            <td class="w40"><span class="c-bacbe6">是否死于新型冠状病毒感染的肺炎：</span><span class="c-fff" id="sfsyxxgzbdgr"></span></td>
+                            <td class="w30"><span class="c-bacbe6">是否开展死亡病因讨论：</span><span class="c-fff" id="sfkzswbytl"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="piece">
+                <div class="tel">
+                    <i></i><span>护理记录详情</span>
+                </div>
+                <div class="table-info">
+                    <div class="echarts">
+                        <div class="echar-l w-echart" id="screen_line1"></div>
+                        <div class="echar-r w-echart" id="screen_line2"></div>
+                    </div>
+                    <table class="t-info">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>护理时间</th>
+                            <th>体温(℃)</th>
+                            <th>呼吸(bpm)</th>
+                            <th>血压(mmHg)</th>
+                            <th>心率(bpm)</th>
+                            <th>是否重症</th>
+                            <th>是否危重症</th>
+                            <th>是否排除疑似病例</th>
+                            <th>治疗结果</th>
+                        </tr>
+                        </thead>
+                        <tbody id="huliTable">
+                        <!--<tr>
+                            <td>1</td>
+                            <td>2020-01-29 12:06</td>
+                            <td>37</td>
+                            <td>40</td>
+                            <td>60/100</td>
+                            <td>128</td>
+                            <td>否</td>
+                            <td>否</td>
+                            <td>否</td>
+                            <td>好转</td>
+                        </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input id="sfzhs" hidden="hidden" th:value="${sfzh}">
+<input id="orgCode" hidden="hidden" th:value="${orgCode}">
+</body>
+<script th:src="@{/distP/js/lib/jquery/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/distP/js/lib/nicescroll/jquery.nicescroll.min.js}"></script>
+<script th:src="@{/distP/js/lib/echarts/echarts4.js}"></script>
+<script th:src="@{/distP/js/echarts.js}"></script>
+<script th:src="@{/dist/js/lib/DateUtil.js}"></script>
+<script th:src="@{/dist/business/js/publicCommon.js?v=20200339}"></script>
+<script th:src="@{/dist/js/lib/dataInterface.js}"></script>
+<script th:src="@{/distP/business/patient_view_info.js}"></script>
+<script>
+    $(function() {
+        $("#niceScroll").niceScroll({
+            cursorcolor: "#3165bc", // 改变滚动条颜色，使用16进制颜色值
+            cursoropacitymin: 0, // 当滚动条是隐藏状态时改变透明度, 值范围 1 到 0
+            cursoropacitymax: 1, // 当滚动条是显示状态时改变透明度, 值范围 1 到 0
+            cursorwidth: "10px", // 滚动条的宽度，单位：便素
+            cursorborder: "", // CSS方式定义滚动条边框
+            cursorborderradius: "5px", // 滚动条圆角（像素）改变滚动条的DIV的z-index值
+            scrollspeed: 60, // 滚动速度
+            mousescrollstep: 40, // 鼠标滚轮的滚动速度 (像素)
+            touchbehavior: false, // 激活拖拽滚动
+            hwacceleration: true, // 激活硬件加速
+            boxzoom: false, // 激活放大box的内容
+            dblclickzoom: true, // (仅当 boxzoom=true时有效)
+            background: "#0e2453", // 轨道的背景颜色
+            iframeautoresize: true, // 在加载事件时自动重置iframe大小
+            cursorminheight: 32, // 设置滚动条的最小高度 (像素)
+            preservenativescrolling: true, // 你可以用鼠标滚动可滚动区域的滚动条和增加鼠标滚轮事件
+            railoffset: false, // 可以使用top/left来修正位置
+            bouncescroll: false, // (only hw accell) 启用滚动跳跃的内容移动
+            spacebarenabled: true, // 当按下空格时使页面向下滚动
+            horizrailenabled: true, // nicescroll可以管理水平滚动
+            enabletranslate3d: true, // nicescroll 可以使用CSS变型来滚动内容
+            enablemousewheel: true, // nicescroll可以管理鼠标滚轮事件
+            enablekeyboard: true, // nicescroll可以管理键盘事件
+            smoothscroll: true, // ease动画滚动
+            sensitiverail: true, // 单击轨道产生滚动
+            enablemouselockapi: true, // 可以用鼠标锁定API标题 (类似对象拖动)
+        });
+        $('#close').on('click', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+            $('#patient-layer1').hide();
+            var _id = window.parent.document.getElementById("tanceng2");
+            $(_id).css("display","none");
+        });
+    })
+</script>
+
+</html>

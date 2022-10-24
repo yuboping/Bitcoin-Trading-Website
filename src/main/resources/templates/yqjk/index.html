@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<head>
+    <title>疫情监控系统</title>
+    <meta charSet="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="demo" />
+    <meta name="description" content="demo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script th:src="@{/dist/js/lib/viewport/viewport.js}"></script>
+    <script th:src="@{/dist/patient/ymPrompt/ymPrompt_source.js}"></script>
+    <script th:src="@{/dist/patient/ymPrompt/ymPrompt.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/_common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/patient/ymPrompt/skin/bluebar/ymPrompt.css}">
+
+</head>
+
+<body>
+    <div class="yqjkxy-wrapper">
+        <!-- 头部开始 -->
+        <div class="header-wrapper">
+            <div class="mar-box fn-clear">
+                <div class="time-show top-btn" id="time"></div>
+                <h2 class="header-title">甘肃省新型冠状病毒肺炎疫情监控系统</h2>
+                <div class="home-btn fn-clear top-btn">
+                    <span id="icon_wholeScreenspan"><i class="icon_wholeScreen"></i><span style="margin: 0;">全屏显示</span></span>
+                    <span id="widowClose"><i class="icon_quit"></i>退出系统</span>
+                </div>
+            </div>
+        </div>
+        <!-- 主体内容开始 -->
+        <div class="main-wrapper mar-box fn-clear">
+            <div class="content" style="display: block;">
+                <div class="bd">
+                    <ul class="fn-clear">
+                        <li class="related-ctc">
+                            <div class="first-screen ">
+                                <!-- 应急储备情况 -->
+                                <div class="emergency-reserve-info">
+                                    <div class="title-head">
+                                        <h3>应急物资储备情况</h3>
+                                        <div class="title-line"></div>
+                                    </div>
+                                    <!-- 第一部分 -->
+                                    <div class="material-type fn-clear">
+                                        <div class="col-8">
+                                            <div class="piece">
+                                                <img src="../dist/img/system_content_kouzhao.png" alt="口罩" class="item_logo">
+                                                <div class="type-count" id="n95kzs">0<span>个</span></div>
+                                                <div class="type-name">N95口罩</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="piece">
+                                                <img src="../dist/img/system_content_yanjing.png" alt="防护眼镜" class="item_logo">
+                                                <div class="type-count" id="fhyj"> >0<span>个</span></div>
+                                                <div class="type-name">防护眼镜(防雾型)</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="piece">
+                                                <img src="../dist/img/system_content_kouzhao.png" alt="口罩" class="item_logo">
+                                                <div class="type-count" id="gly" >0<span>件</span></div>
+                                                <div class="type-name">隔离衣</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 第二部分 -->
+                                    <div class="material-dec">
+                                        <div class="box-item fn-clear">
+                                            <div class="item_name"  >全面型呼吸防护器</div>
+                                            <div class="item_number" id="qmxhxfhq">0<span>个</span></div>
+                                        </div>
+                                        <div class="box-item fn-clear">
+                                            <div class="item_name"  >防水围裙</div>
+                                            <div class="item_number" id="fswq" >0<span>件</span></div>
+                                        </div>
+                                        <div class="box-item fn-clear">
+                                            <div class="item_name"   >手消液</div>
+                                            <div class="item_number" id="sxy" >0<span>瓶</span></div>
+                                        </div>
+
+                                        <div class="box-item fn-clear"  >
+                                            <div class="item_name" >救护车</div>
+                                            <div class="item_number" id="jhc" >0<span>辆</span></div>
+                                        </div>
+                                        <div class="box-item fn-clear" >
+                                            <div class="item_name"   >预留重症监护室床位数</div>
+                                            <div class="item_number" id="ylcws" >0<span>个</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- 第三部分 -->
+                                    <div class="material-type fn-clear">
+                                        <div class="col-8">
+                                            <div class="piece">
+                                                <img src="../dist/img/system_content_fuyabingfang.png" alt="负压病房" class="item_logo">
+                                                <div class="type-count" id="fybf" >0<span>个</span></div>
+                                                <div class="type-name">负压病房</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="piece">
+                                                <img src="../dist/img/system_content_jiuhuche.png" alt="负压转运车" class="item_logo">
+                                                <div class="type-count" id="fyzyc" >0<span>个</span></div>
+                                                <div class="type-name">负压转运车</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="piece">
+                                                <img src="../dist/img/system_content_fuyadanjia.png" alt="负压担架" class="item_logo">
+                                                <div class="type-count"id="fydj">0<span>件</span></div>
+                                                <div class="type-name">负压担架</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 中间部分 -->
+                                <div class="content-box ">
+                                    <div class="content-part1 fn-clear">
+
+                                        <div class="col-4">
+                                            <div class="piece">
+                                                <div class="piece-title">
+                                                    <i class="title-line-2"></i>
+                                                    <span>确诊病例数</span>
+                                                </div>
+                                                <div class="item-count orange-color" id="qzbl_count" onclick="openPatient('2','lj','2','','')">0</div>
+                                                <!--                            <div class="item-countbg">888888</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="piece">
+                                                <div class="piece-title">
+                                                    <i class="title-line-2"></i>
+                                                    <span>疑似病例数</span>
+                                                </div>
+                                                <div class="item-count yellow-color" id="ysbl_count" onclick="openPatient('1','lj','2','','')">0</div>
+                                                <!--                            <div class="item-countbg">888888</div>-->
+                                            </div>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <div class="piece">
+                                                <div class="piece-title">
+                                                    <i class="title-line-2"></i>
+                                                    <span>治愈人数</span>
+                                                </div>
+                                                <div class="item-count color-47f0ff" id="cy_count" onclick="openPatient('4','lj','2','','')">0</div>
+                                                <!--                            <div class="item-countbg">888888</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="piece">
+                                                <div class="piece-title">
+                                                    <i class="title-line-2"></i>
+                                                    <span>死亡人数</span>
+                                                </div>
+                                                <div class="item-count red-color" id="sw_count" onclick="openPatient('3','lj','2','','')">0</div>
+                                                <!--                            <div class="item-countbg">888888</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="piece">
+                                                <div class="piece-title">
+                                                    <i class="title-line-2"></i>
+                                                    <span>发热门诊人次</span>
+                                                </div>
+                                                <em class="item-count green-color six" id="drfrmzjzrc_count">0</em>
+                                                <!--                            <div class="item-countbg">888888</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="piece">
+                                                <div class="piece-title">
+                                                    <i class="title-line-2"></i>
+                                                    <span>发热留观人次</span>
+                                                </div>
+                                                <div class="item-count color-47f0ff six" id="drfrmzlgrc_count">0</div>
+                                                <!--                            <div class="item-countbg">888888</div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 中间第二部分 -->
+                                    <div class="areaName">甘肃省</div>
+                                    <div id="goBackBtn" class="areaName-back"><i></i>返回上级</div>
+                                    <div id="main_gansu" class="chart cc_part2" style="position: relative;"></div>
+
+                                    <div class="content-part3">
+                                        <div class="subtitle">
+                                            <span>新型冠状病毒肺炎疫情监控趋势分析</span>
+                                            <i class="light1"></i>
+                                        </div>
+                                        <div id="chart_line"></div>
+                                    </div>
+                                </div>
+                                <!-- 左侧部分 -->
+                                <div class="left-part">
+
+                                    <!-- 第二部分 -->
+                                    <div class="left-part2">
+                                        <div class="title-head">
+                                            <h3>确诊病例数统计情况</h3>
+                                            <div class="title-line"></div>
+                                            <div class="cr_tab">
+                                                <div class="tab_item tab_active" value="dt">当天数</div>
+                                                <div class="tab_item" value="lj">累计数</div>
+                                            </div>
+                                        </div>
+                                        <div class="material-type fn-clear">
+                                            <div class="col-8">
+                                                <div class="piece">
+                                                    <img src="../dist/img/system_content_quezhen.png" alt="确诊" class="item_logo">
+                                                    <div class="type-count" id="isqzbl" onclick="openPatient('2','','2','','')" >0<span>人</span></div>
+                                                    <div class="type-name">确诊病例数</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="piece">
+                                                    <img src="../dist/img/system_content_quezhenyiwu.png" alt="确诊医务人员" class="item_logo">
+                                                    <div class="type-count" id="qzblwywry" onclick="openPatient('2','','1','','')" >0<span>人</span></div>
+                                                    <div class="type-name">确诊病例为医务人员数</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="piece">
+                                                    <img src="../dist/img/system_content_zhongzheng.png" alt="重症" class="item_logo">
+                                                    <div class="type-count"id="qzbliszz"  onclick="openPatient('5','','2','zz','')" >0<span>人</span></div>
+                                                    <div class="type-name">确诊病例重症病例数</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="material-type fn-clear">
+                                            <div class="col-8">
+                                                <div class="piece">
+                                                    <img src="../dist/img/system_content_bingwei.png" alt="病危" class="item_logo">
+                                                    <div class="type-count" id="qzbliswzz"  onclick="openPatient('5','','2','wzz','')" >0<span>人</span></div>
+                                                    <div class="type-name">确诊病例危重症病例数</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="piece">
+                                                    <img src="../dist/img/system_content_siwang.png" alt="死亡" class="item_logo">
+                                                    <div class="type-count" id="qzblissw" onclick="openPatient('5','','2','sw','')"   >0<span>人</span></div>
+                                                    <div class="type-name">确诊病例死亡病例数</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="piece">
+                                                    <img src="../dist/img/system_content_zhiyu.png" alt="治愈" class="item_logo">
+                                                    <div class="type-count" id="qzbliscy" onclick="openPatient('5','','2','zy','')"  >0<span>人</span></div>
+                                                    <div class="type-name">确诊病例治愈病例数</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 第三部分 -->
+                                    <div class="left-part3">
+                                        <div class="title-head">
+                                            <h3>疑似病例数统计情况</h3>
+                                            <div class="title-line"></div>
+                                            <div class="cr_tab">
+                                                <div class="tab_item tab_active" value="hz" >全部</div>
+                                                <div class="tab_item"  value="ywry">医务人员</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-wrap flex-wrap2">
+                                            <div class="item">
+                                                <div class="type-count green-color" id="ljysData" onclick="openPatient('6','lj','','','')" >0<span>人</span></div>
+                                                <div class="type-name">累计疑似病例人数</div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="type-count color-47f0ff" id="zrysData"  onclick="openPatient('6','dt','','','')">0<span>人</span></div>
+                                                <div class="type-name">昨日新增疑似病例人数</div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="type-count color-fba721" id="ysjcData"  onclick="openPatient('6','','','','jc')">0<span>人</span></div>
+                                                <div class="type-name">累计解除疑似病例人数</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 第一部分 -->
+                                    <div class="left-part1">
+                                        <div class="title-head">
+                                            <h3>发热留观人数情况</h3>
+                                            <div class="title-line"></div>
+                                            <div class="cr_tab">
+                                                <!-- <div class="tab_item tab_active" value="hz">患者</div>-->
+                                                <!-- <div class="tab_item"value="ywry" >医务人员</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="flex-wrap flex-wrap1">
+                                            <div class="item">
+                                                <div class="type-count green-color" id="ljlgrc" >0<span>人</span></div>
+                                                <div class="type-name" >昨日发热门诊人次数</div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="type-count color-fba721" id="drfrmzlgrc" >0<span>人</span></div>
+                                                <div class="type-name" >昨日留观人次数</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="related-ctc">
+                            <div class="second-screen">
+                                <!-- 左侧部分开始 -->
+                                <div class="content-left">
+                                    <div class="chart-wrap">
+                                        <div class="subtitle">
+                                            <span>各地新型冠状病毒肺炎疫情监控情况</span>
+                                            <i class="light1"></i>
+                                        </div>
+                                        <div id="chart_bar1">
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrap">
+                                        <div class="subtitle">
+                                            <span>定点医疗机构患者收治情况（TOP10）</span>
+                                            <i class="light1"></i>
+                                        </div>
+                                        <div id="chart_bar2"></div>
+                                    </div>
+                                </div>
+                                <!-- 左侧部分结束 -->
+                                <!-- 右侧部分开始 -->
+                                <div class="content-right">
+                                    <div class="subtitle">
+                                        <span>各地新型冠状病毒肺炎疫情监控情况</span>
+                                        <i class="light2"></i>
+                                    </div>
+                                    <div class="table-warp" id="szgzjbDiv">
+
+                                    </div>
+                                </div>
+                                <!-- 右侧部分结束 -->
+                                <!-- 正文结束 -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul class="nav-list fn-clear" id="togeuls">
+                        <li class="active"></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 主体内容结束 -->
+
+        <div style="display: none;" id="tanceng">
+            <iframe id="iframe1" name="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" src=""></iframe>
+        </div>
+    </div>
+    <input id="xzqhCode" hidden="hidden" th:value="${areaCode}">
+</body>
+<script th:src="@{/dist/js/lib/jquery/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/dist/js/lib/backstretch/jquery.backstretch.min.js}"></script>
+<script th:src="@{/dist/js/lib/echarts/echarts4.js}"></script>
+<script th:src="@{/dist/js/lib/gq.js}"></script>
+<script th:src="@{/dist/js/lib/fullpage/jquery.fullpage.js}"></script>
+
+<script th:src="@{/dist/js/lib/pie_echart.js}"></script>
+<script th:src="@{/dist/js/lib/numscroll/countup.js?v=20200129}"></script>
+<script th:src="@{/dist/js/lib/numscroll/jquery.waypoints.min.js?v=20200129}"></script>
+<script th:src="@{/distP/js/lib/nicescroll/jquery.nicescroll.min.js}"></script>
+<script th:src="@{/dist/js/lib/dataInterface.js}"></script>
+<script th:src="@{/dist/js/lib/DateUtil.js}"></script>
+<script th:src="@{/dist/js/lib/superSlide/jquery.SuperSlide.2.1.1.js?v=20200127}"></script>
+<script th:src="@{/dist/js/map/china-main-city-map.js?v=20200129}"></script>
+<script th:src="@{/dist/js/map/map.js?v=20200129}"></script>
+<script th:src="@{/dist/business/js/publicCommon.js?v=20200129}"></script>
+<!--<script th:src="@{/dist/js/lib/wjj.js?v=20200127}"></script>-->
+<script th:src="@{/dist/business/js/gzbdAnalisy.js?v=20200129}"></script>
+<script th:src="@{/dist/business/js/index_wzcb.js?v=20200129}"></script>
+
+<script th:inline="javascript">
+    $("body").backstretch( [[@{/dist/img/system_bg.png}]]);
+
+        var add=setInterval("getTime()",1000);
+        //这个函数主要是获取时间然后写入div中
+        function getTime() {
+            var date=new Date();//创建date对象，获取时间
+            var id1=document.getElementById("time");//通过div标签的id多去div标签
+            var moth=paddNum(date.getMonth()+1);
+            id1.innerHTML=date.getFullYear()+'年'+moth+'月'+paddNum(date.getDate())+'日'+'<span>'+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'</span>';//将时间通过innerHTML属性写入div标签中
+        }
+        var paddNum = function(num){
+            num += "";
+            return num.replace(/^(\d)$/,"0$1");
+        };
+
+        $('#widowClose').on("click",function () {
+            window.close();
+        });
+
+        /**
+         * 获取个人基本信息
+         * @param patientState 1：疑似病历：2：确诊病历：3：死亡病历；4：治愈病历：5：确诊病历左侧使用：6：疑似病历左侧
+         * @param isDtLj  当天累计
+         * @param isdoctor 是否医护人员
+         * @param zzState 危重、死亡、治愈
+         * @param isJc 是否解除
+         */
+        function openPatient(patientState,isDtLj,isdoctor,zzState,isJc) {
+            debugger;
+
+            var areaCode=commonParams["areaCode"];
+            if(isDtLj==null || isDtLj==''){
+                isDtLj=commonParams["dtlj"];
+            }
+            if(isdoctor==null || isdoctor==''){
+                isdoctor=commonParams["isdoctor"];
+            }
+            $('#tanceng').css("display","block");
+
+            $("#iframe1").attr('src','../patientInfo/list?areaCode=' + areaCode + '&patientState=' + patientState+'&isDtLj='+isDtLj+"&isdoctor="+isdoctor+"&zzState="+zzState+"&isJc="+isJc);
+            $('#iframe1').css('width', '100%');
+            $('#iframe1').css('height', '100%');
+            $('#iframe1').css('align', 'middle');
+
+            $('#iframe1').css('position', 'fixed');
+            $('#iframe1').css('top', '0');
+            $('#iframe1').css('left', '0');
+            $('#iframe1').css('right', '0');
+            $('#iframe1').css('bottom', '0');
+            $('#iframe1').css('z-index', '999');
+           //ymPrompt.win({message:'../patientInfo/list?areaCode=' + areaCode + '&patientState=' + patientState+'&isDtLj='+isDtLj+"&isdoctor="+isdoctor+"&zzState="+zzState+"&isJc="+isJc,width:1100,height:600,handler:null,iframe:true,titleBar: false});
+        };
+
+        function showPatientList(areaCode,patientState){
+            $('#tanceng').css("display","block");
+
+            $("#iframe1").attr('src','../patientInfo/list?areaCode=' + areaCode + '&patientState=' + patientState);
+            $('#iframe1').css('width', '100%');
+            $('#iframe1').css('height', '100%');
+            $('#iframe1').css('align', 'middle');
+
+            $('#iframe1').css('position', 'fixed');
+            $('#iframe1').css('top', '0');
+            $('#iframe1').css('left', '0');
+            $('#iframe1').css('right', '0');
+            $('#iframe1').css('bottom', '0');
+            $('#iframe1').css('z-index', '999');
+
+        };
+</script>
